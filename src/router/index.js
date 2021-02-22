@@ -18,7 +18,7 @@ const routes = [
     path: "/bar",
     name: "Bar",
     component: Bar
-  },
+  }
 ];
 
 const router = createRouter({
