@@ -1,6 +1,5 @@
 {
-  "userId": 1,
-  "id": 1,
-  "title": "Hello, Cypress!",
+  "id": 2,
+  "title": "Mocked by Cypress",
   "completed": true
 }

@@ -1,29 +1,27 @@
 # cypress-msw
 
+Demo of Cypress with MSW
+
 ## Project setup
+
 ```
-npm install
+npm ci
 ```
 
-### Compiles and hot-reloads for development
+### Run the demo application
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+MSW will also work. You can see the message **"[MSW] Mocking enabled."** on your console if MWS works correctly.
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+MSW will mock only this endpoint, `https://jsonplaceholder.typicode.com/todos/1`.
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Run Cypress
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+You need to run the demo before running Cypress.
+
+```
+npm run cypress:open
+```

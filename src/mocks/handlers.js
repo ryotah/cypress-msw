@@ -5,9 +5,8 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        userId: 1,
         id: 1,
-        title: "Hello, World!",
+        title: "Mocked by MSW",
         completed: true
       })
     );

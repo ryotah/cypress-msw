@@ -1,7 +1,12 @@
 <template>
   <div>
     <h1>Foo</h1>
-    {{ todo }}
+    <form @submit.prevent="submit">
+      <input v-model="todoId" /><button type="submit">
+        Get
+      </button>
+    </form>
+    <pre>{{ todo }}</pre>
   </div>
 </template>
 
@@ -9,23 +14,30 @@
 export default {
   data() {
     return {
-      todo: undefined
+      todo: undefined,
+      todoId: "1"
     };
   },
   created() {
-    const path = "https://jsonplaceholder.typicode.com/todos/1";
+    // fetch(apiTodoRequest(this.todoId))
+    //   .then(response => response.json())
+    //   .then(json => console.log(json));
 
-    fetch(path)
-      .then(response => response.json())
-      .then(json => console.log(json));
-    // => { userId: 1, id: 1, title: "delectus aut autem", completed: false }
-
-    this.axios.get(path).then(response => {
+    this.axios.get(apiTodoRequest(this.todoId)).then(response => {
       console.log(response.data);
-      // => { userId: 1, id: 1, title: "delectus aut autem", completed: false }
-
       this.todo = response.data;
     });
+  },
+  methods: {
+    submit() {
+      this.axios
+        .get(apiTodoRequest(this.todoId))
+        .then(response => (this.todo = response.data));
+    }
   }
 };
+
+function apiTodoRequest(id) {
+  return `https://jsonplaceholder.typicode.com/todos/${id}`;
+}
 </script>
