@@ -2,7 +2,7 @@ const API_URL = "https://jsonplaceholder.typicode.com/";
 
 describe("foo", () => {
   beforeEach(() => {
-    cy.intercept(`${API_URL}todos/`, {
+    cy.intercept(`${API_URL}todos/*`, {
       fixture: "todo"
     }).as("todo");
     cy.visit("/#/foo");
